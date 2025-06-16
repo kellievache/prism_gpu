@@ -95,7 +95,7 @@ program near_parallel
     distances(:,:,:)=-9999
     local_distance(:)=-9999
     ! File containing the station data
-    filename = '/nfs/pancake/u5/projects/vachek/prism_profile/cai_tmax_us_us_30s_20240318.stn'
+    filename = 'cai_tmax_us_us_30s_20240318.stn'
 
     ! Open the text file for reading
     open(unit=10, file=filename, status='old', action='read',form='formatted' ,iostat=ios)
@@ -123,8 +123,7 @@ program near_parallel
     end do
     close(10)
 
-   ! filename2 = '/nfs/pancake/prism_current/us/an/ehdr/800m/tmax/daily/2005/prism_tmax_us_30s_20050101.bil'
-    filename2 = '/nfs/pancake/u5/projects/vachek/prism_profile/PRISM_us_dem_800m_bil.bil'
+    filename2 = 'PRISM_us_dem_800m_bil.bil'
     ! Open the .bil file for reading
     open(unit=10, file=filename2, status='old', access='stream', form='unformatted', iostat=ios)
     if (ios /= 0) then
@@ -260,7 +259,7 @@ program near_parallel
             !integer, dimension(:,:), intent(inout) :: array
             ny = SIZE(array, 1)
             nx = SIZE(array, 2)
-            open(unit=10, file='/nfs/pancake/u5/projects/vachek/prism_profile/near_d.bil', status='replace', access='stream', form='unformatted')
+            open(unit=10, file='near_d.bil', status='replace', access='stream', form='unformatted')
         
             ! Write the array to the file in BIL format
             do ii = 1, ny
